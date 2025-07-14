@@ -1,0 +1,284 @@
+/**
+ * WP BINGO Styles (Version 5 - Mobile Friendly)
+ */
+
+/* --- Base App Layout --- */
+#wp-bingo-app {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* --- Player Entry Screen --- */
+#player-entry-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 15px;
+    min-height: 80vh;
+}
+
+.player-entry-box {
+    max-width: 500px;
+    width: 100%;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.player-entry-box h2 {
+    margin-top: 0;
+    color: #2c3e50;
+    font-size: 1.8rem;
+}
+
+#player-name-input {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    margin: 20px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Important for responsive forms */
+}
+
+/* --- Main Game Container --- */
+#wp-bingo-board-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 20px 15px;
+    background-color: white;
+    border-radius: 12px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    text-align: center;
+}
+
+/* --- Timer --- */
+#bingo-timer-wrapper {
+    margin-bottom: 20px;
+}
+#bingo-timer {
+    display: inline-block;
+    background: #2c3e50;
+    color: #fff;
+    padding: 10px 25px;
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    letter-spacing: 2px;
+}
+
+.wp-bingo-header h1 {
+    font-size: 3rem;
+    color: #2c3e50;
+    letter-spacing: 0.5rem;
+    margin: 0 0 0.5rem;
+}
+
+.wp-bingo-header p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#wp-bingo-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    border: 2px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.bingo-square {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 140px;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    aspect-ratio: 1 / 1;
+}
+
+.bingo-square:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.bingo-square .bingo-square-content {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    line-height: 1.3;
+}
+
+.bingo-name-input {
+    width: 90%;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    text-align: center;
+    font-size: 1rem;
+    padding: 5px;
+    background-color: transparent;
+    transition: border-color 0.3s ease;
+}
+
+.bingo-name-input:focus {
+    outline: none;
+    border-bottom-color: #4A90E2;
+}
+
+.bingo-square.selected {
+    background-color: #4A90E2;
+    color: #ffffff;
+}
+
+.bingo-square.selected .bingo-square-content {
+    opacity: 0.7;
+    font-size: 0.75rem;
+}
+
+.bingo-square.selected .bingo-name-input {
+    background-color: rgba(255,255,255,0.2);
+    color: #fff;
+    border-bottom: 2px solid #fff;
+}
+.bingo-square.selected .bingo-name-input::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+
+.wp-bingo-footer {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.bingo-button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+	background: black;
+}
+.bingo-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.bingo-button.bingo-shout { background-color: #5cb85c; }
+.bingo-button.bingo-shout:hover { background-color: #4cae4c; }
+.bingo-button.bingo-reset { background-color: #f0ad4e; }
+.bingo-button.bingo-reset:hover { background-color: #eea236; }
+
+.bingo-button:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none;
+    box-shadow: none;
+}
+
+.bingo-message {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 8px;
+}
+.bingo-message.success { color: green; background-color: #dff0d8; border: 1px solid #d6e9c6; }
+.bingo-message.error { color: #a94442; background-color: #f2dede; border: 1px solid #ebccd1; }
+
+/* ===== MOBILE RESPONSIVE STYLES ===== */
+
+/* For tablets and smaller desktops */
+@media (max-width: 768px) {
+    .wp-bingo-header h1 {
+        font-size: 2.5rem;
+        letter-spacing: 0.3rem;
+    }
+    .bingo-square {
+        min-height: 120px;
+        padding: 8px;
+    }
+    .bingo-square .bingo-square-content {
+        font-size: 0.85rem;
+    }
+}
+
+/* For mobile phones */
+@media (max-width: 480px) {
+    #wp-bingo-board-container {
+        padding: 15px 10px;
+        margin: 1rem auto;
+    }
+
+    .player-entry-box {
+        padding: 20px;
+    }
+
+    #bingo-timer {
+        font-size: 1.5rem;
+        padding: 8px 20px;
+    }
+
+    .wp-bingo-header h1 {
+        font-size: 2rem;
+        letter-spacing: 0.2rem;
+    }
+    
+    .wp-bingo-header p {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+
+    #wp-bingo-board {
+        /* The key change for mobile: 2 columns */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        padding: 8px;
+    }
+
+    .bingo-square {
+        min-height: auto; /* Let aspect ratio handle height */
+        padding: 8px;
+    }
+
+    .bingo-square .bingo-square-content {
+        font-size: 0.8rem;
+    }
+
+    .bingo-name-input {
+        font-size: 0.9rem;
+    }
+
+    .wp-bingo-footer {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    .bingo-button {
+        width: 80%; /* Make buttons take more width */
+        padding: 15px;
+    }
+}
