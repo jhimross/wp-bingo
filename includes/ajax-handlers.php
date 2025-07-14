@@ -1,7 +1,7 @@
 <?php
 /**
  * All AJAX handlers for the WP BINGO plugin.
- * Version 6.1.1
+ * Version 2.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -150,7 +150,7 @@ function wp_bingo_check_win_callback() {
             array( 'player_guid' => $player_guid, 'game_id' => $game_id ),
             array( '%d', '%s' ), array( '%s', '%d' )
         );
-        wp_send_json_success( 'Bingo Card Submitted' );
+        wp_send_json_success( 'BINGO! Thank you for submitting!' );
     } else {
         wp_send_json_error( 'Not a BINGO yet. Keep trying!' );
     }

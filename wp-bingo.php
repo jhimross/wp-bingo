@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name:       WP BINGO
- * Plugin URI:        https://example.com/
+ * Plugin URI:        https://github.com/jhimross/wp-bingo
  * Description:       A BINGO game for WordPress meetups to help attendees connect.
- * Version:           6.1.1
- * Author:            Your Name
- * Author URI:        https://example.com/
+ * Version:           2.0.0
+ * Author:            Jhimross
+ * Author URI:        https://github.com/jhimross/
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       wp-bingo
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
 
-define( 'WP_BINGO_VERSION', '6.1.1' );
+define( 'WP_BINGO_VERSION', '2.0.0' );
 
 // ===== Plugin Activation & Update =====
 function wp_bingo_activate() {
@@ -30,7 +30,7 @@ function wp_bingo_activate() {
         player_name varchar(100) NOT NULL,
         game_id mediumint(9) NOT NULL,
         card_data text NOT NULL,
-        card_layout text NOT NULL DEFAULT '',
+        card_layout text NOT NULL,
         is_winner tinyint(1) NOT NULL DEFAULT 0,
         win_time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
         PRIMARY KEY  (id),
@@ -87,6 +87,7 @@ add_action( 'wp_enqueue_scripts', 'wp_bingo_enqueue_scripts' );
 function wp_bingo_admin_enqueue_scripts($hook) {
     if ($hook != 'toplevel_page_wp-bingo-results') return;
     
+    // Enqueue WordPress media scripts for the logo uploader
     wp_enqueue_media();
 
     wp_enqueue_style( 'wp-bingo-admin-style', plugin_dir_url( __FILE__ ) . 'assets/wp-bingo-admin.css', array(), WP_BINGO_VERSION );
@@ -155,7 +156,7 @@ function wp_bingo_shortcode() {
             </div><br>
             <div id="bingo-timer-wrapper"><div id="bingo-timer">--:--</div></div>
             <div class="wp-bingo-footer">
-                 <button id="bingo-shout-button" class="bingo-button bingo-shout">Submit!</button>
+                 <button id="bingo-shout-button" class="bingo-button bingo-shout">BINGO!</button>
                  <button id="reset-bingo-button" class="bingo-button bingo-reset">Reset Card</button>
             </div>
             <div id="bingo-message" class="bingo-message" style="display:none;"></div>

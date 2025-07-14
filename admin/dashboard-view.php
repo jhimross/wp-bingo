@@ -1,6 +1,6 @@
 <?php
 /**
- * Admin View for BINGO Dashboard (v6.1.1 - Single Page Layout with Logo Uploader)
+ * Admin View for BINGO Dashboard (v2.0.0)
  */
 if ( ! current_user_can( 'manage_options' ) ) return;
 
@@ -18,9 +18,6 @@ $display_game_id = isset($_GET['game_id']) ? intval($_GET['game_id']) : $current
 // Fetch players for the selected game
 $players = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $player_table WHERE game_id = %d ORDER BY is_winner DESC, win_time ASC", $display_game_id ) );
 
-// Get items for the selected game to display in the details view
-$items_str = get_option('wp_bingo_items', '');
-$bingo_items = array_filter(array_map('trim', explode("\n", $items_str)));
 $logo_url = get_option('wp_bingo_logo_url', '');
 ?>
 <div class="wrap wp-bingo-admin">
@@ -123,6 +120,7 @@ $logo_url = get_option('wp_bingo_logo_url', '');
                 <?php if ( ! empty( $players ) ) : ?>
                     <?php foreach ( $players as $player ) :
                         $card_data = json_decode( $player->card_data, true );
+                        $player_card_layout = json_decode( $player->card_layout, true );
                         $filled_squares = is_array($card_data) ? count(array_filter($card_data)) : 0;
                     ?>
                     <tr>
@@ -140,16 +138,21 @@ $logo_url = get_option('wp_bingo_logo_url', '');
                         <td colspan="5">
                             <div class="bingo-card-details">
                                 <h4><?php echo esc_html( $player->player_name ); ?>'s Card (Game #<?php echo esc_html($display_game_id); ?>)</h4>
-                                <?php if ($filled_squares > 0): ?>
+                                <?php if ($filled_squares > 0 && is_array($player_card_layout)): ?>
                                     <ul>
                                         <?php foreach($card_data as $index => $name): ?>
-                                            <?php if (!empty($name)): ?>
-                                                <li><strong><?php echo esc_html($name); ?></strong></li>
+                                            <?php if (!empty($name)): 
+                                                $square_text = isset($player_card_layout[$index]) ? $player_card_layout[$index] : 'Square ' . ($index + 1);
+                                                if (strtoupper($name) === 'FREE') : ?>
+                                                    <li><strong>FREE SPACE</strong></li>
+                                                <?php else: ?>
+                                                    <li><strong><?php echo esc_html($square_text); ?>:</strong> <?php echo esc_html($name); ?></li>
+                                                <?php endif; ?>
                                             <?php endif; ?>
                                         <?php endforeach; ?>
                                     </ul>
                                 <?php else: ?>
-                                    <p>No names entered for this game.</p>
+                                    <p>No names entered for this game, or card layout is missing.</p>
                                 <?php endif; ?>
                             </div>
                         </td>
