@@ -1,0 +1,66 @@
+/**
+ * WP BINGO Admin Styles (v6.1.0)
+ */
+.wp-bingo-admin .bingo-admin-box {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    padding: 1px 12px 12px;
+    margin-top: 20px;
+}
+
+.wp-bingo-admin .controls-flex { display: flex; gap: 20px; flex-wrap: wrap; }
+.wp-bingo-admin .control-item { flex: 1; min-width: 300px; border: 1px solid #ddd; padding: 15px; border-radius: 4px; }
+.wp-bingo-admin .control-item h3 { margin-top: 0; }
+.wp_bingo-admin .timer-form input[type="number"] { width: 60px; }
+
+.wp-bingo-admin .results-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; padding-bottom: 10px; border-bottom: 1px solid #eee; margin-bottom: 10px; }
+.wp-bingo-admin .results-header h2 { margin: 0; }
+.wp-bingo-admin .winner-yes { color: #227122; font-weight: bold; }
+
+.wp-bingo-admin .details-row td { padding: 0; }
+.wp-bingo-admin .bingo-card-details { background: #f8f8f8; padding: 15px 20px; border-left: 3px solid #4A90E2; }
+.wp-bingo-admin .bingo-card-details ul { list-style: disc; padding-left: 20px; margin: 0; }
+.wp-bingo-admin .bingo-card-details li { margin-bottom: 5px; }
+
+.admin-message {
+    padding: 10px 15px;
+    border-radius: 4px;
+    border-left-width: 4px;
+    border-left-style: solid;
+    margin-top: 15px;
+}
+
+.danger-zone {
+    border-color: #d63638;
+}
+.danger-zone h2 {
+    color: #d63638;
+}
+.button-danger {
+    background: #d63638;
+    border-color: #b62c2e #a6282a #a6282a;
+    color: #fff;
+    box-shadow: 0 1px 0 #a6282a;
+    text-shadow: 0 -1px 1px #b62c2e, 1px 0 1px #b62c2e, 0 1px 1px #b62c2e, -1px 0 1px #b62c2e;
+}
+.button-danger:hover,
+.button-danger:focus {
+    background: #c43032;
+    border-color: #962426;
+    color: #fff;
+}
+
+/* Logo Uploader Styles */
+.logo-uploader {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+#logo-preview {
+    max-width: 150px;
+    max-height: 50px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    background: #f7f7f7;
+}
