@@ -1,5 +1,5 @@
 /**
- * WP BINGO Admin Styles (v6.1.0)
+ * WP BINGO Admin Styles (v2.0.1)
  */
 .wp-bingo-admin .bingo-admin-box {
     background: #fff;
@@ -14,7 +14,7 @@
 .wp-bingo-admin .control-item h3 { margin-top: 0; }
 .wp_bingo-admin .timer-form input[type="number"] { width: 60px; }
 
-.wp-bingo-admin .results-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; padding-bottom: 10px; border-bottom: 1px solid #eee; margin-bottom: 10px; }
+.wp-bingo-admin .results-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; padding-top: 10px; padding-bottom: 10px; border-bottom: 1px solid #eee; margin-bottom: 10px; }
 .wp-bingo-admin .results-header h2 { margin: 0; }
 .wp-bingo-admin .winner-yes { color: #227122; font-weight: bold; }
 
@@ -38,16 +38,16 @@
     color: #d63638;
 }
 .button-danger {
-    background: #d63638;
-    border-color: #b62c2e #a6282a #a6282a;
-    color: #fff;
+    background: #d63638 !important;
+    border-color: #b62c2e!important;
+    color: #fff !important;
     box-shadow: 0 1px 0 #a6282a;
     text-shadow: 0 -1px 1px #b62c2e, 1px 0 1px #b62c2e, 0 1px 1px #b62c2e, -1px 0 1px #b62c2e;
 }
 .button-danger:hover,
 .button-danger:focus {
-    background: #c43032;
-    border-color: #962426;
+    background: #c43032 !important;
+    border-color: #962426 !important;
     color: #fff;
 }
 
@@ -63,4 +63,10 @@
     border: 1px solid #ddd;
     padding: 5px;
     background: #f7f7f7;
+}
+
+@media screen and (max-width: 782px) {
+button.button.button-secondary.view-card-btn {
+    padding: 0 10px;
+}
 }

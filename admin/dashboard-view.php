@@ -1,6 +1,6 @@
 <?php
 /**
- * Admin View for BINGO Dashboard (v2.0.0)
+ * Admin View for BINGO Dashboard (v2.0.1)
  */
 if ( ! current_user_can( 'manage_options' ) ) return;
 
@@ -130,7 +130,7 @@ $logo_url = get_option('wp_bingo_logo_url', '');
                         <td><?php echo $player->is_winner ? esc_html( $player->win_time ) : 'N/A'; ?></td>
                         <td>
                             <?php if ($filled_squares > 0): ?>
-                                <button class="button button-secondary view-card-btn" data-player-id="<?php echo esc_attr($player->id); ?>">View Card</button>
+                                <button class="button button-secondary view-card-btn" data-player-id="<?php echo esc_attr($player->id); ?>">View</button>
                             <?php endif; ?>
                         </td>
                     </tr>

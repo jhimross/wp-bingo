@@ -3,7 +3,7 @@
  * Plugin Name:       WP BINGO
  * Plugin URI:        https://github.com/jhimross/wp-bingo
  * Description:       A BINGO game for WordPress meetups to help attendees connect.
- * Version:           2.0.0
+ * Version:           2.0.1
  * Author:            Jhimross
  * Author URI:        https://github.com/jhimross/
  * License:           GPL v2 or later
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
 
-define( 'WP_BINGO_VERSION', '2.0.0' );
+define( 'WP_BINGO_VERSION', '2.0.1' );
 
 // ===== Plugin Activation & Update =====
 function wp_bingo_activate() {

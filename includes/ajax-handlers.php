@@ -1,7 +1,7 @@
 <?php
 /**
  * All AJAX handlers for the WP BINGO plugin.
- * Version 2.0.0
+ * Version 2.0.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
